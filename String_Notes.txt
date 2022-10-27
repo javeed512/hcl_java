@@ -1,0 +1,55 @@
+
+		int a1[] , x;
+		
+		int[] a2,a4,a5,a6;
+		
+		int[]  []a3 , y ;
+
+
+	
+
+Object class:
+--------------
+hashcode();
+toString(); // printing hashcode
+equals();  // compare hashcode of 2 objects
+finalize();
+wait();
+notify();
+notifyAll();
+
+
+
+
+
+
+
+
+
+Strings:
+--------
+
+"abdsklsdfaklksfda"
+
+"abacd123245"
+
+"&*&()*&*##$%^GHGKHg&*^&76658"
+
+String class can be use to handle string type data in java.
+
+String can be created in 2 ways.
+
+methods:
+--------
+equals()
+concat()
+compare()
+toString()
+
+
+String objects are immutable in nature.
+
+Can't be change/modified
+
+
+

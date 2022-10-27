@@ -1,0 +1,173 @@
+Introduction to Java:
+=====================
+
+Java is a programming language , implemented by using Object Oriented Programming Concepts (OOPs).
+
+Java is derived from C-lang.
+
+demo.c --> demo.exe 
+
+Demo.java --  javac -> Demo.class --- JVM(java) --> execute 
+
+java-compiler / javac.exe
+JVM - Java virtual machine / java.exe
+
+
+application.jar ---> set of .class files
+application.war ---> set of .class files + set of jars
+
+Types of Applications/Softwares:
+=================================
+
+1. Console App/Desktop App / Stand alone
+Ex: Notepad, O.S, MS-Office , Paint, Browser etc
+2. Web App
+EX: Websites, Gmail, Facebook , Amazon etc
+3. Mobile App
+Ex: FAcebook app, Wats app, games
+
+
+Java Features:
+--------------
+1. It uses OOPs.
+2. It is platform independent.
+3. Secure
+4. Robost
+5. Multi-Threaded
+6. Use for developing all types of application.
+7. Open Source.
+
+
+
+Java Naming convections or Rules:
+----------------------------------
+packages:  lower cases
+
+	java.lang;
+	com.hcl.student;
+
+	java.lang.*;
+	java.io.*;
+	java.util.*;	
+	java.time.*;
+
+syntax:  domain-name.company-name.project-name.module-name
+
+	ex: com.hcl.etickets.login
+	ex:  com.oracle.myapp.admin
+
+	ex: bankapp.customer
+
+-----------------------
+
+classes/interfaces
+
+InitCaps: initial letter caps followed by lower cases.
+
+Object , System , String
+Student, Employee , Customer ,
+StudentEntity , EmployeeDetails
+
+
+class bank{
+
+
+}
+
+----------------------------
+
+Constructors:
+Same as class name , InitCap
+
+Student --> Student(){  }
+Employee ---> Employee(){  }
+
+-----------------------------------
+
+methods/variables:
+
+camel-case  
+
+	int add;
+	int addAmount;
+	
+	double balance;
+	double totalBalance;
+
+
+	int add(){
+
+	}
+
+	int addSalary(){
+
+
+	}
+-------------------------
+
+final variable:
+
+	ALL UPPER CASE
+
+
+final  double  PI = 3.141;
+	
+final String  IFSC = "HDFC001";
+
+
+
+
+----------------------------------------
+
+Variable: Place holder , memory location where data is stored.
+Its a reference name to the memory location where data is stored.
+
+int  x = 50;
+
+Datatypes:
+----------
+Data types act as meta data for variable.
+They define what type of data can be store in given variable.
+
+ 1. Primitive Datatypes
+
+   Names         size      default-value        WrapperClass
+--------------------------------------------------------------
+	byte        1 byte          0						Byte
+	short       2 byte			  0						Short
+	char        2 byte			single space			Character
+	int			 4 byte			  0						Integer
+	long		 8 bytes		  0						Long
+	float       4 bytes		  0.0f					Float
+	double      8 bytes		  0.0					Double
+	boolean      1 bit         false 					Boolean
+
+
+
+Note: By default every number is taken as integer , and every decimal value is taken as double.
+
+
+
+ 2. Non-Primitive Datatypes / Reference Types / Object Types
+
+	Object o;
+	String s1;  // null
+	System s2;
+
+Note: Default value for any reference type is null.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
