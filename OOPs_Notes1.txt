@@ -1,0 +1,184 @@
+OOPs:
+------
+1. Class and Object
+
+class:
+-------
+Its a Blueprint.
+It is collection of objects.
+Its a user defined Datastructure.
+class is a reusable component.
+class is imaginary.
+
+Object/Instance:
+----------------
+Objects are instances of class.
+Object is a real world entity exist physically.
+
+
+
+
+
+
+Object class in Java:
+----------------------
+java.lang.Object class
+
+
+Object class is a super most class in java or 
+Object class is the parent for all the java classes.
+
+
+== operator compare hashcode for objects and values for primitive data types.
+int x = 5 , y =10;
+
+x == y (compare values)
+
+Demo d1 = new Demo();  Demo d2 = new Demo();
+
+d1 == d2 (compares hashcode)
+
+
+class Object{
+
+	public Object(){
+
+		// creating objects
+		// generating hashcode
+		// memory allocation of object to the heap memory
+
+		// creating copy of instance variables
+	}
+
+
+	boolean equals(); // compare hashcode/references of 2 objects
+	
+	int hashcode(); // generate integer hashcode of objects
+
+public String toString() // it is used to print hashcode in string format
+	{
+
+
+	return  packagename+getClass()+hashcode; // returns hc in string format
+	}
+
+
+
+
+
+
+
+
+}
+
+
+Constructors:
+-------------
+Constructors are special methods of any class.
+Constructors are used to create object.
+Parameter constructors are used to initialize values to the instance variables.
+
+Constructors does not have any return values , not even void.
+
+public Demo(){
+super();
+
+}
+
+public Demo(int id, String name){
+	super();
+
+// some logics
+
+}
+
+------------------------------------------------
+
+Access Modifier:
+----------------
+private: With in a class/program
+
+
+default: With in a current package
+
+public:  Any where inside project , its universal
+
+protected : it is confusing access modifier , it can be used in 2 ways.
+	i. by default it act as a default modifier.
+	ii. can also act as a public in case of inheritance (where current class getting extended by another class in another package)
+
+
+
+
+
+
+
+
+Variables in Java.
+--------------------
+1. Local Variables
+2. Instance variables
+3. static variables.
+
+Local Variable:
+---------------
+A variable declare inside any block (if,loops,switch, method, constructor,try-catch block)
+or variable declare as parameters is known as local variable.
+Local variable value should be initialize by user , jvm will not initialize values to local variables.
+
+
+Instance Variable:
+-------------------
+A variable declare inside the class without static keyword , known as instance variables.
+Instance variable will be created inside heap memory.
+Jvm initialize default values to the instance variable.
+
+For , every object of a class will have seperate copy of instance variables(belongs to same class).
+
+Instance variables can be initialize using parameter construtor or setter methods
+Instance variables can be access/get using getter methods.
+
+Instance varibles also known as object-level variables
+
+-------------------------------
+
+
+Static Variables:
+-----------------
+Variable declare inside class with static keyword.
+Static members can be access using object or classname.
+Jvm initialize default values to the static variable.
+
+For , every object of a class will not have seperate copy of static variables(belongs to same class).
+
+Every object get same copy of static variable means , if you  change value in one object it reflect in all other objects.
+
+
+Static variables also known as class - level variables.
+
+
+
+
+
+
+
+class and objects
+types of constructors
+types of variables
+local,instance,static
+
+use-parameter constructors and setter,getters
+
+
+Java Object class and imp methods 
+Inheritance 
+Overloading and overriding
+
+
+
+
+
+
+
+
+
