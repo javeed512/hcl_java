@@ -1,0 +1,273 @@
+interface:
+-----------
+User:
+Set of services provided , service provider where only services are highlighted and implementation is hidden.
+It is just  a User Interface for end user.
+
+
+
+
+Developer:
+For developer interface is nothing but specifications / requirements.
+The developer will implemented those requirements using interfaces and implementation class.
+
+Interface: In Java interfaces are created by using interface keyword.
+Interface does not have constructor.
+In interface every method will be by default public abstract.
+Ex: public static  int add(int a, int b);
+
+In interface we can declare only final variables.
+By default every variable in interface is public static final.
+
+Abstract methods:
+-----------------
+
+public void deposit();
+
+
+Abstract class:
+---------------
+A class which has abstract methods as well as non-abstract.
+We cannot create objects for Abstract classes.
+We will have constructor for Abstract classes.
+
+
+
+Polymorphism :
+
+Poly-many
+morphism - forms
+
+
+Note: method overriding is also example of runtime/dynamic polymorphism.
+
+Note: method overloading or constructor overloading are examples of compile time / static polymorphism
+
+
+
+String s1 = new String();
+
+Object o1 = new Object();
+
+Object o1 = new String(); // runtime polymorphism
+
+BankImp1 b = new BankImp2();
+
+
+
+-------------------------------------------
+
+Interface reference variable can hold its implementation class object.
+
+IBank b = new BankImp2();
+
+
+
+
+
+
+
+
+----------------------------------------
+
+class A {                           
+
+void m1(){
+
+	}
+
+}
+--------------------------
+
+class B extend A{
+
+void m1(){
+
+	}
+
+}
+
+
+------------------------------
+
+class C extends B{
+
+ main(){
+
+	C  c = new C();
+
+	c.m1();
+
+}
+
+}
+
+
+Note: Classes supports only multi - level inheritance
+
+-------------------------------------------------
+
+Interfaces supports multiple as well as multi-level
+
+I1 , I2 , I3 
+
+public interface I1{
+
+	void m1();
+
+}
+
+public interface I3{
+
+	void m3();
+
+}
+
+
+
+
+public interface I2 extends I1 , I3{
+
+	void m2();
+
+}
+
+
+public class Demo implements I2{
+
+
+	void m1() {  ...}
+
+	void m2() {.....}
+
+	void m3() {.....}
+
+}
+
+
+
+
+-----------------------------
+
+
+public class User{
+
+private int userId;
+private String username;
+
+public User(int userId, String username){
+
+this.userId = userId;
+this.username = username;
+
+}
+
+
+
+
+}
+
+
+
+public class Client  extends User{
+
+
+		public Client(int id, String name){
+
+				super(id,name);
+		}
+
+
+
+}
+
+
+
+
+
+------------------------------------------------------------------
+
+
+
+Menu
+-----
+1.Login
+2.Registration
+
+
+Registration:
+
+	userid , username
+	User user = new Client(userid,username);
+
+		userDao.register(user);  --->   class UserDaoImp{
+
+															User userList[] = ne User[5];
+													register(user){
+		
+															user[0] = user;
+															i++;
+
+													}
+
+
+											}
+	
+
+
+
+Login:
+
+	uid = 101;
+	username = "javeed";
+	userType = "client"; / "visitor"
+
+if(userType.equals("client")){
+User  user =	new Client(uid,username);
+	
+		if(userDao.login(user)){
+
+		TaksDAO dao = new ClientTaskImp();
+
+	dao.add();dao.update() .... all methods		
+
+		Next-Menu:
+			1. add
+			2. update
+
+		}
+
+			else{
+						login fail.. login again
+			}
+
+
+	}	
+
+else{
+
+	User  user =	new Visitor(uid,username);
+		
+				VisitorTaskImp.display(); // only one display()
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
