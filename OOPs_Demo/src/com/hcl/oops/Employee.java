@@ -4,11 +4,20 @@ public class Employee {
 	
 	private int eid;
 	private String ename;  // data hiding
+	private String password;
 	private double salary;
 	
 	
 	
 	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Override
 	public String toString() {
 		return "Employee [eid=" + eid + ", ename=" + ename + ", salary=" + salary + "]";
@@ -19,12 +28,18 @@ public class Employee {
 		
 	}
 	
-	public Employee(int eid, String ename, double salary) {
+	
+	
+	
+	
+	public Employee(int eid, String ename, String password, double salary) {
 		super();
 		this.eid = eid;
 		this.ename = ename;
+		this.password = password;
 		this.salary = salary;
 	}
+
 	public int getEid() {
 		return eid;
 	}
