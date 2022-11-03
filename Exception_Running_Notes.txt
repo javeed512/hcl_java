@@ -1,0 +1,143 @@
+
+ArithmeticException e = new ArithmeticException();
+
+ArithmeticException e = new NullPointerException();
+
+Exception e 
+
+
+
+throws keyword throws exception from callee to the caller
+try-catch-finally
+System.exit(0);
+
+
+
+---------------------
+try{
+
+	try{} catch(){}  finally{}
+
+}catch(Exception e){
+
+	try{}  catch{}
+
+
+}
+finally{
+
+		try{} catch(){} finallY{}
+
+
+}
+
+------------------------------
+
+try{
+ 
+	// risky code
+
+}
+finally{
+
+		try{
+		}
+		catch(){
+
+
+		}
+
+
+}
+
+
+
+
+throws - To throws exception from one place to another
+try- to write risky code
+catch- to hanle exceptions
+finally - to execute mandatory code
+
+throw - it is used to throw/raise any exception manually
+
+
+
+
+
+
+User Defined Exceptions:
+---------------------------
+
+1. Create User defined exception 
+Note: extends RuntimeException for unchecked or extends Exception fro checked.
+2. throw above exception where ever you want to raise it.
+3. handle it using try-catch.
+
+
+---------------------------------------------------
+
+final 
+ 
+variable,class,method 
+
+final int X =99;
+
+X = 100; // ERROR
+
+------------------
+final class Parent{
+
+public final void m1(){
+
+// parent logic
+
+}
+
+}
+
+class Child{
+
+Parent p = new Parent();
+
+public void m1(){ // errror
+
+// diff child logic
+
+}
+
+
+}
+
+
+
+
+
+
+finalize() from Object class
+
+finalize() ---> System.gc(); ---> clean all unused objects
+
+
+
+
+
+finally - it is used to execute mandatory code in exception handling programs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
