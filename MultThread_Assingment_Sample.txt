@@ -1,0 +1,67 @@
+class Client extends User implements Runnable{
+
+
+public void run(){
+
+
+	this.login();
+
+}
+
+
+}
+
+---------------------------
+class Visitor extends User implements Runnable{
+
+
+public void run(){
+
+this.login();
+
+}
+
+
+}
+
+
+
+------------------------------
+
+class TodoManager{
+
+
+
+main(){
+
+
+
+	Client c1 = new Client();
+
+	Thread t1 = new Thread(c1);
+
+		//c1.login();
+
+		t1.start();
+
+	Visitor v1 = new Visitor();
+
+	Thread t2 = new Thread(v1);
+
+		//v1.login();
+
+		t2.start();
+
+
+
+
+
+
+
+}
+
+
+
+
+
+}
