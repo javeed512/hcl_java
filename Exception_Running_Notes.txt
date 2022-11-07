@@ -3,11 +3,7 @@ ArithmeticException e = new ArithmeticException();
 
 ArithmeticException e = new NullPointerException();
 
-Exception e 
-
-
-
-throws keyword throws exception from callee to the caller
+throws keyword ---> throws exception from callee to the caller
 try-catch-finally
 System.exit(0);
 
