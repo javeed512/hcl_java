@@ -1,0 +1,69 @@
+HashSet : It order elements based on Hashcode
+LInkedHashSet: It preserved insertion order
+TreeSet:  nature sorting order
+
+
+
+
+
+
+
+
+
+
+TreeSet:
+---------
+It sorts only those class objects , which  provides implementation to Comparable interface.
+
+Ex: All Wrapper classes and String class
+
+interface Comparable{
+
+	int compareTo();
+
+}
+
+
+public class String implements Comparable{   // "B".compareTo("A"); // 66-65
+
+	public int compareTo(String s2){  // A,B
+
+		// sorting logic
+	
+
+		return 1; // SWAP ELEMENTS 
+	}
+
+
+
+}
+
+
+
+----------------------------
+
+interface Comparator{
+
+	compare();
+	equals();
+
+
+
+}
+
+class MyComparator  implements Comparator<Employee>{
+
+
+	
+
+
+}
+
+
+
+
+
+
+
+
+
