@@ -1,0 +1,100 @@
+IO Package:
+-----------
+java.io.*;
+
+Stream:
+-------
+Flow of data from one source to another source / destination.
+
+By Streaming data we can perform input/output operations easily.
+
+
+How data can be stream?
+
+1. Char by Char
+
+Character Stream:
+-------------------
+Reader 
+FileReader
+BufferdReader
+FilterReader	// 65 <--int  read()  <--A // it returns ascii value of char
+InputStreamReader
+
+		
+Writer
+FileWriter
+BufferedWriter
+FilterWriter	 --->void write(int) // "A" ->65 // it accept ascii value of char
+OutputStreamWriter
+
+
+
+
+
+
+2. Byte by Byte
+
+Byte Stream:
+------------
+InputStream      // reader
+FileInputStream
+BufferedInputStream   --> read(), readLine()
+ObjectInputStream
+
+
+OutputStream         // writer
+FileOutputStream
+BufferedOutputStream   // write() , writeLine()
+ObjectOutputStream
+
+
+------------------------------
+java.io.*;
+class InputStream{
+	
+	
+
+
+}
+
+class OutputStream{
+
+	
+
+
+}
+
+class  PrintStream{
+
+	print(){...}
+		
+	println(){.....}
+
+
+
+}
+
+
+java.lang.*;
+
+class System{
+
+	static InputStream in  = new InputStream();
+	static PrintStream out = new PrintStream();
+	static PrintStream err = new PrintStream();
+
+
+
+}
+
+
+System.out.print();
+
+System.err.println();
+
+
+
+
+
+
