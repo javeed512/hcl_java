@@ -43,9 +43,10 @@ public class Book {
 	
 	
 	
+	
 	@Override
 	public int hashCode() {
-		return Objects.hash(bookName);
+		return Objects.hash(bookId);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -56,7 +57,7 @@ public class Book {
 		if (getClass() != obj.getClass())
 			return false;
 		Book other = (Book) obj;
-		return Objects.equals(bookName, other.bookName);
+		return bookId == other.bookId;
 	}
 	@Override
 	public String toString() {
