@@ -1,0 +1,201 @@
+Java 8 Features:
+----------------
+1. java.time.*;
+2. java.util.concurrent.*;  and java.util.function.*;
+3. Functional Interface
+4. Lambda Expression
+5. Method/Constructor reference  ( :: )
+6. Optional Type
+7.  static and default methods in interfaces
+8. Stream API 
+java.util.function.*;
+
+Functional Interface:
+----------------------
+Interface which consist of only one abstract method.
+Implementation of any Functional Interface is Lambda Expression.
+
+All Lambda Expressions returns Functional Interface.
+
+
+@FunctionalInterface
+public interface MyFunctionalInteface {
+	
+		public int add(int a, int b);
+
+		
+
+	
+}
+
+
+--------------------
+public class LambdaDemo {
+
+	public static void main(String[] args) {
+
+		MyFunctionalInteface mi = (x,y) -> x+y; 
+		// (int x,int y)-> {return x+y;}
+		
+	}
+
+}
+
+------------------------
+Types of Functional Interface:
+1. Consumer Functional Interface
+2. Supplier Functional Interface
+3. Function Functional Interface
+4. Predicate Functional Interface
+
+
+Consumer:
+---------
+void  m1(int x);
+
+
+public  MyInterface  {  // Consumer
+
+void   set(String x , int y);
+
+}
+
+
+Supplier:
+----------
+int  m2();
+String m3();
+Object get();
+
+public  MyInterface  {  // Supplier
+
+public String m3();
+
+}
+
+
+Function Functional Interface:
+------------------------------
+
+public  int  m4(int x, String);  // except boolean return type
+
+
+
+Predicate Functional Interface
+--------------------------------
+
+public boolean  m5(String str); // always boolean
+
+-----------------------------------------------------
+
+From Java8 onwards we can write method definitions inside interfaces.
+
+We use static/default methods to defined methods inside interfaces.
+
+
+public interface IBank{
+
+
+	public void deposit();  // dev1
+	public void withdraw();   // dev2
+	public void fundTransfer();  // dev3
+
+	public static void validation(){
+
+		// account validation logic
+
+	}	
+			
+	public default void auth(){
+
+		//authentication logics
+
+	}	
+	
+
+
+}
+
+
+
+class Demo{
+
+	main(){
+
+		IBank.validation();
+
+
+	}
+
+
+}
+
+----------------
+
+class   BankImp implements IBank{
+
+	m1(){
+
+		IBank b = new BankImp();
+
+			b.auth();
+	}
+
+
+}
+
+
+
+
+
+
+---------------------
+class UserDao implements Runnable{
+
+
+
+
+	boolean login(User user){  // uname,pwd
+
+		//login code
+	}
+
+
+	public void run(){
+
+		login();
+	}
+
+
+}
+
+
+
+
+
+Enter username
+uname =javeed
+Enter password
+pwd = tiger
+
+User user = new User(uname,pwd);  
+
+UserDao  dao = new UserDao();  // implements Runnable ----> run(){ call login();}
+
+Thread userThread = new Thread(dao);
+	userThread.start();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
