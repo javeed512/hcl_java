@@ -1,0 +1,198 @@
+
+Generic Types:
+-------------
+Generic Type is a parameterized data type , it can be applied to the classes and interfaces.
+Generic type can be any Reference or non-primitive type. It can be class type or interface type.
+
+Ex: Any Wrapper Classes , String , Any Predefined or User defined class/interface.
+
+Syn:  List<T> list = new ArrayList<T>();
+
+T- Integer, Long ,String,Object , Customer, Employee , Any Wrapper class type
+
+
+Ex: Map<K,V>  map;
+
+
+class Demo extends Object{
+
+
+}
+
+interface IBank extends  IHeadBank {
+
+
+}
+
+
+methodOne(ArrayList<? extends Number>){
+
+
+}
+
+
+methodOne(ArrayList<? extends Runnable>){
+
+
+}
+
+al = new ArrayList<Runnable>();
+al.add(new Thread());
+al.add(new UserThread());
+
+
+
+---------------------------------
+
+
+methodOne(ArrayList<? super x> list){...}
+
+
+al = new ArrayList<Integer>();
+al2 = new ArrayList<Number>();
+al = new ArrayList<Object>();
+methodOne();
+
+------------------------------------------------------------
+
+
+Annotations in Java:
+--------------------
+Annotation are used to provide additional instructions or meta data to the compiler and jvm.
+
+Annotations can be created using classes. And naming convections for annotation is InitCap.
+
+@Override:   class Override{   }
+@SuppressWarnings:
+
+syn: @AnnotationName
+
+Annotations can be used at class/interface level or method/constructor level or parameter/field level.
+
+
+
+@FunctionalInterface
+public  FunctionalInterfaceDemo{
+
+
+
+}
+
+@Entity         // class level
+class Demo{
+
+	@Autowire       // field level
+	private DaoImp dao;
+
+
+	@Override    // method level
+	void m1(){
+
+	}
+
+	
+	int add(@Param int a,@Param int b){
+
+
+
+	}
+
+	
+
+
+}
+
+
+-------------------------------------------------
+Unit Testing:
+-------------
+Unit Testing is process of testing individual units / smallest part / any part of application by developer.
+
+->Unit Testing is performed to find bugs / logical errors.
+
+->Unit Testing should be perform for valid, invalid , expected , unexpected , within range and out of range values.
+
+->We perform unit testing to verify  code implementation is done as per the given requirement or not.
+
+->We also perform unit testing to check software/application quality.
+
+
+
+
+boolean login(String username , String password){
+
+
+	// validation logics
+
+}
+
+
+
+login("javeed","tiger");
+
+
+login(8143112345,"x");
+
+
+
+--------------------------------------------
+In java we deliver softwares in jar/war formats
+jar/war: its a java compress format in which packages will be there. In each package set of interface and classes.
+
+
+
+JUnit : Unit Testing Java Library / API / Small Software
+
+junit-5.jar
+
+MavenRepository 
+www.mvnrepository.com
+
+
+------------------------------------
+
+JUnit-5 Annotations:
+----------------------
+@Test
+@BeforeAll
+@AfterAll
+@BeforeEach
+@AfterEach
+@ParameterizedTest
+@ValueSource
+@DisplayName
+@RepeatedTest
+
+
+
+Assertions class
+
+assertXXX();
+
+assertTrue();
+assertNotNull();
+assertEquals();
+assertNotEquals();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
