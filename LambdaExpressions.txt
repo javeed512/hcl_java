@@ -188,9 +188,38 @@ Thread userThread = new Thread(dao);
 
 
 
+java.time.*;
+------------
+Data/Time API
 
 
 
+
+class Address{
+
+
+private String city;
+
+}
+
+
+
+class  Employee{
+
+
+	private int eid;
+	private String ename;
+	private Address address;
+
+
+}
+
+
+	new Employee(); ---> new Address();  // Eager or Early loading
+
+Employee  e1 =	new Employee(); ---> not addres object 
+
+	e1.getAddress(); // ---> new Address();  // Lazy loading
 
 
 

@@ -1,0 +1,94 @@
+
+Java-8
+--------
+Functional Interface
+Lambda Expression
+
+Functional Interface?
+----------------------
+It consist of exactly one and only one abstract method
+We can have default and static methods inside Functional Interfaces
+
+Types of Functional Interfaces:
+-------------------------------
+1. Consumer Functional Interface
+		
+	public abstract  void  setData(Object obj1,Object obj2);
+	
+
+2. Supplier  Functional Interface
+
+	public abstract  Object  getData();
+
+
+3. Predicate Functional Interface
+
+	public  abstract  Boolean  isValid(Object obj);
+
+4. Function Functional Interface
+
+	public abstract  Object   m1(Integer i , String s);
+
+
+5. Optional  
+
+public   Optional<Double>   sumOfSalary(List<Double> salaries);
+
+	
+		Optional<Double> optional = sumOfSalary(list);	
+
+		if(optional.isPresent()){
+
+				System.out.println(optional.get())
+
+		}
+
+		else{
+		optional.orElse(null);
+
+		}
+
+
+	Double d  = sumOfSalary(list).orElse(new Double(0.0));
+		
+	
+
+java.util.function.*;
+
+
+
+Stream API:
+------------
+java.util.stream.*;
+
+Stream Interface
+
+Operations
+-----------
+1. Intermediate operations
+
+map()
+filter()
+reduce()
+distinct()
+limit()
+skip()
+
+
+
+2. Terminal Operations
+
+forEach()
+collect()
+min()
+max()
+count()
+
+
+
+
+
+
+
+
+
