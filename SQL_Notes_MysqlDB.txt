@@ -1,0 +1,1106 @@
+Database:
+---------
+Collection of interrelated data which is store in structure format.
+Digital system where data is getting store in tabular formats.
+
+EX: Oracle DB, MySQL , H2 , SqlServer , Sybase, DB2 , Postgres , MariaDB
+
+Table:
+------
+Structure in which data is stored in rows and columns formats.
+
+Employee Table
+---------------
+int  varchar(10)   decimal
+EID  ENAME   SALARY    
+---- ------   ------
+101   King     50000.0    ----> new  Employee(101,"king",50000);
+102   Tom      30000.0
+103   Smith    25000.0
+
+
+SQL: Structural Query Language.
+Set of commands.
+
+
+
+
+
+
+DML:
+
+
+
+DRL/DQL:
+
+
+
+
+MYSQL Command Line / Workbench / Any DB software.
+
+1. How to create Database.
+> CREATE DATABASE empdb;
+2. show all databases
+> show databases;
+3.  show all tables
+> show tables
+4. how to connect any db
+> use database_name;
+
+1. DDL: Data Definition Language
+CREATE , ALTER , DROP , TRUNCATE
+
+Auto-Commit
+How to create table:
+---------------------
+1. INTEGER / NUMBER
+2. DECIMAL / DOUBLE
+3. DATE (all database softwares uses diff date formats)
+4. Varchar
+5. Char 
+
+
+eid integer(3)  ---> 0 to 999
+ename  char(10)  ---> 10 characters   tom  // here 7 bytes get waste
+ename  varchar(10) ----> 10 bytes     tom // remaing 7 bytes will be reuse
+salary   integer(9,2)--->   50000.99
+doj      date   
+
+
+Creating Employee Table:
+------------------------
+CREATE TABLE Employee(Eid integer(3) PRIMARY KEY ,EName varchar(15),Salary decimal,
+Doj DATE);
+
+ALTER 
+options: i. add ii. modify iii.drop
+
+ALTER TABLE Employee  modify  Ename varchar(25);
+
+ALTER TABLE Employee  add(Job varchar(20));
+
+ALTER TABLE Employee  drop  column DOJ;
+
+
+DROP TABLE EMPLOYEE;
+
+TRUNCATE TABLE EMPLOYEE;
+
+--------------------------------------------
+DML:
+Data Manipulation Language
+---------------------------
+INSERT , UPDATE , DELETE
+
+
+INSERT:
+insert into Employee values(101,'King',50000.0,'2022-11-16','President');
+
+insert into Employee(ename,eid,salary)  values('Tom',102,3000.0);
+
+
+insert into Employee values(103,'Smith',40000.0,'2022-11-14','Manager');
+
+
+insert into Employee values(104,'Javeed',35000.0,current_date,'Developer');
+
+insert into Employee values(105,'Charan',30000.0,current_date,'Developer');
+
+
+insert into Employee values(106,'Scott',25000.0,current_date-1,'Tester');
+
+insert into Employee values(107,'Ford',31000.0,current_date+1,'Tester');
+
+
+UPdate:
+ UPDATE  EMPLOYEE  SET  doj = current_date  , job = 'Salesman' where  eid = 102;
+
+Delete:
+DELETE EMPLOYEE where eid = 107;  // ford record will be deleted.
+
+
+DRL/DQL:
+SELECT
+
+select projection   from table_name where filters;
+
+select * from employee;
+
+select * from employee where eid = 101;
+
+select * from employee where  salary > 30000;
+
+select distinct job from employee;
+
+select * from employee where eid = 101 OR eid= 102;
+
+
+Group Functions:
+------------------
+
+min , max , sum , avg , count
+
+
+
+complete select syntax:
+-----------------------
+
+select projections  from table_name where filters(single column) group by column_name having filter[group_column] order by column_name;
+
+
+
+Class Room Practice Demos:
+----------------------------
+mysql> CREATE database  empdb;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| empdb              |
+| information_schema |
+| mydb               |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use empdb;
+Database changed
+mysql> use mydb;
+Database changed
+mysql> use sakila;
+Database changed
+mysql> use empdb;
+Database changed
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> CREATE TABLE Employee(Eid integer(3) PRIMARY KEY ,EName varchar(15),Salary decimal,
+    -> Doj DATE);
+Query OK, 0 rows affected, 1 warning (0.14 sec)
+
+mysql> DESC  employee;
++--------+---------------+------+-----+---------+-------+
+| Field  | Type          | Null | Key | Default | Extra |
++--------+---------------+------+-----+---------+-------+
+| Eid    | int           | NO   | PRI | NULL    |       |
+| EName  | varchar(15)   | YES  |     | NULL    |       |
+| Salary | decimal(10,0) | YES  |     | NULL    |       |
+| Doj    | date          | YES  |     | NULL    |       |
++--------+---------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql>
+mysql> ALTER TABLE Employee  modify(Ename varchar(25));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(Ename varchar(25))' at line 1
+mysql> ALTER TABLE Employee  modify Ename varchar(25)
+    -> ;
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc Employee;
++--------+---------------+------+-----+---------+-------+
+| Field  | Type          | Null | Key | Default | Extra |
++--------+---------------+------+-----+---------+-------+
+| Eid    | int           | NO   | PRI | NULL    |       |
+| Ename  | varchar(25)   | YES  |     | NULL    |       |
+| Salary | decimal(10,0) | YES  |     | NULL    |       |
+| Doj    | date          | YES  |     | NULL    |       |
++--------+---------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE Employee add(Job  varchar(20));
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc Employee;
++--------+---------------+------+-----+---------+-------+
+| Field  | Type          | Null | Key | Default | Extra |
++--------+---------------+------+-----+---------+-------+
+| Eid    | int           | NO   | PRI | NULL    |       |
+| Ename  | varchar(25)   | YES  |     | NULL    |       |
+| Salary | decimal(10,0) | YES  |     | NULL    |       |
+| Doj    | date          | YES  |     | NULL    |       |
+| Job    | varchar(20)   | YES  |     | NULL    |       |
++--------+---------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert into Employee values(101,'King',50000.0,'2022-11-16','President');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into Employee(ename,eid,salary)  values('Tom',102,3000.0);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from employee;
++-----+-------+--------+------------+-----------+
+| Eid | Ename | Salary | Doj        | Job       |
++-----+-------+--------+------------+-----------+
+| 101 | King  |  50000 | 2022-11-16 | President |
+| 102 | Tom   |   3000 | NULL       | NULL      |
++-----+-------+--------+------------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> insert into Employee values(101,'Smith',40000.0,'2022-11-14','Manager');
+ERROR 1062 (23000): Duplicate entry '101' for key 'employee.PRIMARY'
+mysql> insert into Employee values(null,'Smith',40000.0,'2022-11-14','Manager');
+ERROR 1048 (23000): Column 'Eid' cannot be null
+mysql> insert into Employee values(103,'Smith',40000.0,'2022-11-14','Manager');
+Query OK, 1 row affected (0.02 sec)
+
+mysql>
+mysql> insert into Employee values(104,'Javeed',35000.0,current_date,'Developer');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from employee;
++-----+--------+--------+------------+-----------+
+| Eid | Ename  | Salary | Doj        | Job       |
++-----+--------+--------+------------+-----------+
+| 101 | King   |  50000 | 2022-11-16 | President |
+| 102 | Tom    |   3000 | NULL       | NULL      |
+| 103 | Smith  |  40000 | 2022-11-14 | Manager   |
+| 104 | Javeed |  35000 | 2022-11-17 | Developer |
++-----+--------+--------+------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> insert into Employee values(105,'Charan',30000.0,current_date,'Developer');
+Query OK, 1 row affected (0.03 sec)
+
+mysql>
+mysql>
+mysql> insert into Employee values(106,'Scott',25000.0,current_date-1,'Tester');
+Query OK, 1 row affected (0.04 sec)
+
+mysql>
+mysql> insert into Employee values(107,'Ford',31000.0,current_date+1,'Tester');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from employee;
++-----+--------+--------+------------+-----------+
+| Eid | Ename  | Salary | Doj        | Job       |
++-----+--------+--------+------------+-----------+
+| 101 | King   |  50000 | 2022-11-16 | President |
+| 102 | Tom    |   3000 | NULL       | NULL      |
+| 103 | Smith  |  40000 | 2022-11-14 | Manager   |
+| 104 | Javeed |  35000 | 2022-11-17 | Developer |
+| 105 | Charan |  30000 | 2022-11-17 | Developer |
+| 106 | Scott  |  25000 | 2022-11-16 | Tester    |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    |
++-----+--------+--------+------------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> UPDATE  EMPLOYEE  SET  doj = current_date  , job = 'Salesman' where  eid = 102;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++-----+--------+--------+------------+-----------+
+| Eid | Ename  | Salary | Doj        | Job       |
++-----+--------+--------+------------+-----------+
+| 101 | King   |  50000 | 2022-11-16 | President |
+| 102 | Tom    |   3000 | 2022-11-17 | Salesman  |
+| 103 | Smith  |  40000 | 2022-11-14 | Manager   |
+| 104 | Javeed |  35000 | 2022-11-17 | Developer |
+| 105 | Charan |  30000 | 2022-11-17 | Developer |
+| 106 | Scott  |  25000 | 2022-11-16 | Tester    |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    |
++-----+--------+--------+------------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> select * from employee where eid = 101;
++-----+-------+--------+------------+-----------+
+| Eid | Ename | Salary | Doj        | Job       |
++-----+-------+--------+------------+-----------+
+| 101 | King  |  50000 | 2022-11-16 | President |
++-----+-------+--------+------------+-----------+
+1 row in set (0.01 sec)
+
+mysql>
+mysql> select  ename,salary from employee where eid = 101;
++-------+--------+
+| ename | salary |
++-------+--------+
+| King  |  50000 |
++-------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee where  salary > 30000;
++-----+--------+--------+------------+-----------+
+| Eid | Ename  | Salary | Doj        | Job       |
++-----+--------+--------+------------+-----------+
+| 101 | King   |  50000 | 2022-11-16 | President |
+| 103 | Smith  |  40000 | 2022-11-14 | Manager   |
+| 104 | Javeed |  35000 | 2022-11-17 | Developer |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    |
++-----+--------+--------+------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee where  salary >= 30000;
++-----+--------+--------+------------+-----------+
+| Eid | Ename  | Salary | Doj        | Job       |
++-----+--------+--------+------------+-----------+
+| 101 | King   |  50000 | 2022-11-16 | President |
+| 103 | Smith  |  40000 | 2022-11-14 | Manager   |
+| 104 | Javeed |  35000 | 2022-11-17 | Developer |
+| 105 | Charan |  30000 | 2022-11-17 | Developer |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    |
++-----+--------+--------+------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from employee where  salary <= 30000;
++-----+--------+--------+------------+-----------+
+| Eid | Ename  | Salary | Doj        | Job       |
++-----+--------+--------+------------+-----------+
+| 102 | Tom    |   3000 | 2022-11-17 | Salesman  |
+| 105 | Charan |  30000 | 2022-11-17 | Developer |
+| 106 | Scott  |  25000 | 2022-11-16 | Tester    |
++-----+--------+--------+------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from employee where  salary = 30000;
++-----+--------+--------+------------+-----------+
+| Eid | Ename  | Salary | Doj        | Job       |
++-----+--------+--------+------------+-----------+
+| 105 | Charan |  30000 | 2022-11-17 | Developer |
++-----+--------+--------+------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select job from employee;
++-----------+
+| job       |
++-----------+
+| President |
+| Salesman  |
+| Manager   |
+| Developer |
+| Developer |
+| Tester    |
+| Tester    |
++-----------+
+7 rows in set (0.00 sec)
+
+mysql> select  distinct  job from employee;
++-----------+
+| job       |
++-----------+
+| President |
+| Salesman  |
+| Manager   |
+| Developer |
+| Tester    |
++-----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from employee ;
++-----+--------+--------+------------+-----------+
+| Eid | Ename  | Salary | Doj        | Job       |
++-----+--------+--------+------------+-----------+
+| 101 | King   |  50000 | 2022-11-16 | President |
+| 102 | Tom    |   3000 | 2022-11-17 | Salesman  |
+| 103 | Smith  |  40000 | 2022-11-14 | Manager   |
+| 104 | Javeed |  35000 | 2022-11-17 | Developer |
+| 105 | Charan |  30000 | 2022-11-17 | Developer |
+| 106 | Scott  |  25000 | 2022-11-16 | Tester    |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    |
++-----+--------+--------+------------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> select * from employee limit 3;
++-----+-------+--------+------------+-----------+
+| Eid | Ename | Salary | Doj        | Job       |
++-----+-------+--------+------------+-----------+
+| 101 | King  |  50000 | 2022-11-16 | President |
+| 102 | Tom   |   3000 | 2022-11-17 | Salesman  |
+| 103 | Smith |  40000 | 2022-11-14 | Manager   |
++-----+-------+--------+------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from employee where eid = 101 OR eid= 102;
++-----+-------+--------+------------+-----------+
+| Eid | Ename | Salary | Doj        | Job       |
++-----+-------+--------+------------+-----------+
+| 101 | King  |  50000 | 2022-11-16 | President |
+| 102 | Tom   |   3000 | 2022-11-17 | Salesman  |
++-----+-------+--------+------------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from employee where eid = 101 OR eid= 109;
++-----+-------+--------+------------+-----------+
+| Eid | Ename | Salary | Doj        | Job       |
++-----+-------+--------+------------+-----------+
+| 101 | King  |  50000 | 2022-11-16 | President |
++-----+-------+--------+------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee where eid = 101 OR eid= 102;
++-----+-------+--------+------------+-----------+
+| Eid | Ename | Salary | Doj        | Job       |
++-----+-------+--------+------------+-----------+
+| 101 | King  |  50000 | 2022-11-16 | President |
+| 102 | Tom   |   3000 | 2022-11-17 | Salesman  |
++-----+-------+--------+------------+-----------+
+2 rows in set (0.00 sec)
+
+mysql>
+mysql> select * from employee where eid = 101  AND  eid= 102;
+Empty set (0.00 sec)
+
+mysql> select * from employee where eid = 101  AND  ename = 'King'
+    -> ;
++-----+-------+--------+------------+-----------+
+| Eid | Ename | Salary | Doj        | Job       |
++-----+-------+--------+------------+-----------+
+| 101 | King  |  50000 | 2022-11-16 | President |
++-----+-------+--------+------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee where eid = 101  AND  ename = 'Tom';
+Empty set (0.00 sec)
+
+mysql> select * from employee where  salary = 30000 AND salary = 31000;
+Empty set (0.00 sec)
+
+mysql> select * from employee where  salary = 30000 OR salary = 31000;
++-----+--------+--------+------------+-----------+
+| Eid | Ename  | Salary | Doj        | Job       |
++-----+--------+--------+------------+-----------+
+| 105 | Charan |  30000 | 2022-11-17 | Developer |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    |
++-----+--------+--------+------------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from employee where  salary IN (30000,31000,50000);
++-----+--------+--------+------------+-----------+
+| Eid | Ename  | Salary | Doj        | Job       |
++-----+--------+--------+------------+-----------+
+| 101 | King   |  50000 | 2022-11-16 | President |
+| 105 | Charan |  30000 | 2022-11-17 | Developer |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    |
++-----+--------+--------+------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from employee where  salary IN (30000,31000,99000);
++-----+--------+--------+------------+-----------+
+| Eid | Ename  | Salary | Doj        | Job       |
++-----+--------+--------+------------+-----------+
+| 105 | Charan |  30000 | 2022-11-17 | Developer |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    |
++-----+--------+--------+------------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> ALTER TABLE Employee  add(comm integer);
+Query OK, 0 rows affected (0.16 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++--------+---------------+------+-----+---------+-------+
+| Field  | Type          | Null | Key | Default | Extra |
++--------+---------------+------+-----+---------+-------+
+| Eid    | int           | NO   | PRI | NULL    |       |
+| Ename  | varchar(25)   | YES  |     | NULL    |       |
+| Salary | decimal(10,0) | YES  |     | NULL    |       |
+| Doj    | date          | YES  |     | NULL    |       |
+| Job    | varchar(20)   | YES  |     | NULL    |       |
+| comm   | int           | YES  |     | NULL    |       |
++--------+---------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> select * from employee ;
++-----+--------+--------+------------+-----------+------+
+| Eid | Ename  | Salary | Doj        | Job       | comm |
++-----+--------+--------+------------+-----------+------+
+| 101 | King   |  50000 | 2022-11-16 | President | NULL |
+| 102 | Tom    |   3000 | 2022-11-17 | Salesman  | NULL |
+| 103 | Smith  |  40000 | 2022-11-14 | Manager   | NULL |
+| 104 | Javeed |  35000 | 2022-11-17 | Developer | NULL |
+| 105 | Charan |  30000 | 2022-11-17 | Developer | NULL |
+| 106 | Scott  |  25000 | 2022-11-16 | Tester    | NULL |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    | NULL |
++-----+--------+--------+------------+-----------+------+
+7 rows in set (0.00 sec)
+
+mysql> update  employee set comm = 1500 where eid = 102;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  employee set comm = 500 where job = 'Developer';
+Query OK, 2 rows affected (0.02 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update  employee set comm = 1000 where job = 'Tester';
+Query OK, 2 rows affected (0.02 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from employee;
++-----+--------+--------+------------+-----------+------+
+| Eid | Ename  | Salary | Doj        | Job       | comm |
++-----+--------+--------+------------+-----------+------+
+| 101 | King   |  50000 | 2022-11-16 | President | NULL |
+| 102 | Tom    |   3000 | 2022-11-17 | Salesman  | 1500 |
+| 103 | Smith  |  40000 | 2022-11-14 | Manager   | NULL |
+| 104 | Javeed |  35000 | 2022-11-17 | Developer |  500 |
+| 105 | Charan |  30000 | 2022-11-17 | Developer |  500 |
+| 106 | Scott  |  25000 | 2022-11-16 | Tester    | 1000 |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    | 1000 |
++-----+--------+--------+------------+-----------+------+
+7 rows in set (0.00 sec)
+
+mysql> select ename,  (salary + comm)   from employee;
++--------+-----------------+
+| ename  | (salary + comm) |
++--------+-----------------+
+| King   |            NULL |
+| Tom    |            4500 |
+| Smith  |            NULL |
+| Javeed |           35500 |
+| Charan |           30500 |
+| Scott  |           26000 |
+| Ford   |           32000 |
++--------+-----------------+
+7 rows in set (0.00 sec)
+
+mysql> select ename,  (salary + comm)  total  from employee;
++--------+-------+
+| ename  | total |
++--------+-------+
+| King   |  NULL |
+| Tom    |  4500 |
+| Smith  |  NULL |
+| Javeed | 35500 |
+| Charan | 30500 |
+| Scott  | 26000 |
+| Ford   | 32000 |
++--------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select ename,  salary + comm  total  from employee;
++--------+-------+
+| ename  | total |
++--------+-------+
+| King   |  NULL |
+| Tom    |  4500 |
+| Smith  |  NULL |
+| Javeed | 35500 |
+| Charan | 30500 |
+| Scott  | 26000 |
+| Ford   | 32000 |
++--------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select ename,  salary + IFNULL(comm,0)  total  from employee;
++--------+-------+
+| ename  | total |
++--------+-------+
+| King   | 50000 |
+| Tom    |  4500 |
+| Smith  | 40000 |
+| Javeed | 35500 |
+| Charan | 30500 |
+| Scott  | 26000 |
+| Ford   | 32000 |
++--------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select * from employee;
++-----+--------+--------+------------+-----------+------+
+| Eid | Ename  | Salary | Doj        | Job       | comm |
++-----+--------+--------+------------+-----------+------+
+| 101 | King   |  50000 | 2022-11-16 | President | NULL |
+| 102 | Tom    |   3000 | 2022-11-17 | Salesman  | 1500 |
+| 103 | Smith  |  40000 | 2022-11-14 | Manager   | NULL |
+| 104 | Javeed |  35000 | 2022-11-17 | Developer |  500 |
+| 105 | Charan |  30000 | 2022-11-17 | Developer |  500 |
+| 106 | Scott  |  25000 | 2022-11-16 | Tester    | 1000 |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    | 1000 |
++-----+--------+--------+------------+-----------+------+
+7 rows in set (0.00 sec)
+
+mysql> select count(*)  from employee;
++----------+
+| count(*) |
++----------+
+|        7 |
++----------+
+1 row in set (0.02 sec)
+
+mysql> use sakila;
+Database changed
+mysql> show tables;
++----------------------------+
+| Tables_in_sakila           |
++----------------------------+
+| actor                      |
+| actor_info                 |
+| address                    |
+| category                   |
+| city                       |
+| country                    |
+| customer                   |
+| customer_list              |
+| film                       |
+| film_actor                 |
+| film_category              |
+| film_list                  |
+| film_text                  |
+| inventory                  |
+| language                   |
+| nicer_but_slower_film_list |
+| payment                    |
+| rental                     |
+| sales_by_film_category     |
+| sales_by_store             |
+| staff                      |
+| staff_list                 |
+| store                      |
++----------------------------+
+23 rows in set (0.00 sec)
+
+mysql> desc film;
+
+
+mysql>  select count(*) from film;
++----------+
+| count(*) |
++----------+
+|     1000 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> use empdb;
+Database changed
+mysql> select * from employee;
++-----+--------+--------+------------+-----------+------+
+| Eid | Ename  | Salary | Doj        | Job       | comm |
++-----+--------+--------+------------+-----------+------+
+| 101 | King   |  50000 | 2022-11-16 | President | NULL |
+| 102 | Tom    |   3000 | 2022-11-17 | Salesman  | 1500 |
+| 103 | Smith  |  40000 | 2022-11-14 | Manager   | NULL |
+| 104 | Javeed |  35000 | 2022-11-17 | Developer |  500 |
+| 105 | Charan |  30000 | 2022-11-17 | Developer |  500 |
+| 106 | Scott  |  25000 | 2022-11-16 | Tester    | 1000 |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    | 1000 |
++-----+--------+--------+------------+-----------+------+
+7 rows in set (0.00 sec)
+
+mysql> select count(comm) from employee;
++-------------+
+| count(comm) |
++-------------+
+|           5 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee  where comm = null;
+Empty set (0.00 sec)
+
+mysql> select * from employee  where comm  IS  null;
++-----+-------+--------+------------+-----------+------+
+| Eid | Ename | Salary | Doj        | Job       | comm |
++-----+-------+--------+------------+-----------+------+
+| 101 | King  |  50000 | 2022-11-16 | President | NULL |
+| 103 | Smith |  40000 | 2022-11-14 | Manager   | NULL |
++-----+-------+--------+------------+-----------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from employee  where comm  IS NOT  null;
++-----+--------+--------+------------+-----------+------+
+| Eid | Ename  | Salary | Doj        | Job       | comm |
++-----+--------+--------+------------+-----------+------+
+| 102 | Tom    |   3000 | 2022-11-17 | Salesman  | 1500 |
+| 104 | Javeed |  35000 | 2022-11-17 | Developer |  500 |
+| 105 | Charan |  30000 | 2022-11-17 | Developer |  500 |
+| 106 | Scott  |  25000 | 2022-11-16 | Tester    | 1000 |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    | 1000 |
++-----+--------+--------+------------+-----------+------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMPLOYEE;
++-----+--------+--------+------------+-----------+------+
+| Eid | Ename  | Salary | Doj        | Job       | comm |
++-----+--------+--------+------------+-----------+------+
+| 101 | King   |  50000 | 2022-11-16 | President | NULL |
+| 102 | Tom    |   3000 | 2022-11-17 | Salesman  | 1500 |
+| 103 | Smith  |  40000 | 2022-11-14 | Manager   | NULL |
+| 104 | Javeed |  35000 | 2022-11-17 | Developer |  500 |
+| 105 | Charan |  30000 | 2022-11-17 | Developer |  500 |
+| 106 | Scott  |  25000 | 2022-11-16 | Tester    | 1000 |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    | 1000 |
++-----+--------+--------+------------+-----------+------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT min(salary) from employee;
++-------------+
+| min(salary) |
++-------------+
+|        3000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT max(salary) from employee;
++-------------+
+| max(salary) |
++-------------+
+|       50000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT sum(salary) from employee;
++-------------+
+| sum(salary) |
++-------------+
+|      214000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT avg(salary) from employee;
++-------------+
+| avg(salary) |
++-------------+
+|  30571.4286 |
++-------------+
+1 row in set (0.02 sec)
+
+mysql> select min(doj) from employee;
++------------+
+| min(doj)   |
++------------+
+| 2022-11-14 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM EMPLOYEE;
++-----+--------+--------+------------+-----------+------+
+| Eid | Ename  | Salary | Doj        | Job       | comm |
++-----+--------+--------+------------+-----------+------+
+| 101 | King   |  50000 | 2022-11-16 | President | NULL |
+| 102 | Tom    |   3000 | 2022-11-17 | Salesman  | 1500 |
+| 103 | Smith  |  40000 | 2022-11-14 | Manager   | NULL |
+| 104 | Javeed |  35000 | 2022-11-17 | Developer |  500 |
+| 105 | Charan |  30000 | 2022-11-17 | Developer |  500 |
+| 106 | Scott  |  25000 | 2022-11-16 | Tester    | 1000 |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    | 1000 |
++-----+--------+--------+------------+-----------+------+
+7 rows in set (0.00 sec)
+
+mysql> select sum(salary)  group by job;
+ERROR 1054 (42S22): Unknown column 'salary' in 'field list'
+mysql> select sum(salary) from employee group by job;
++-------------+
+| sum(salary) |
++-------------+
+|       50000 |
+|        3000 |
+|       40000 |
+|       65000 |
+|       56000 |
++-------------+
+5 rows in set (0.00 sec)
+
+mysql> select job, sum(salary) from employee group by job;
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| President |       50000 |
+| Salesman  |        3000 |
+| Manager   |       40000 |
+| Developer |       65000 |
+| Tester    |       56000 |
++-----------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select job,count(job), sum(salary)  from employee group by job;
++-----------+------------+-------------+
+| job       | count(job) | sum(salary) |
++-----------+------------+-------------+
+| President |          1 |       50000 |
+| Salesman  |          1 |        3000 |
+| Manager   |          1 |       40000 |
+| Developer |          2 |       65000 |
+| Tester    |          2 |       56000 |
++-----------+------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select sum(salary) from employee group by job;
++-------------+
+| sum(salary) |
++-------------+
+|       50000 |
+|        3000 |
+|       40000 |
+|       65000 |
+|       56000 |
++-------------+
+5 rows in set (0.00 sec)
+
+mysql> select job, sum(salary) from employee group by job;
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| President |       50000 |
+| Salesman  |        3000 |
+| Manager   |       40000 |
+| Developer |       65000 |
+| Tester    |       56000 |
++-----------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select job, sum(salary) from employee where sum(salary) > 50000 group by job;
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select job , salary employee;
+ERROR 1054 (42S22): Unknown column 'job' in 'field list'
+mysql> select job , salary from employee;
++-----------+--------+
+| job       | salary |
++-----------+--------+
+| President |  50000 |
+| Salesman  |   3000 |
+| Manager   |  40000 |
+| Developer |  35000 |
+| Developer |  30000 |
+| Tester    |  25000 |
+| Tester    |  31000 |
++-----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select job, sum(salary) from employee  group by job;
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| President |       50000 |
+| Salesman  |        3000 |
+| Manager   |       40000 |
+| Developer |       65000 |
+| Tester    |       56000 |
++-----------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select job, sum(salary) from employee  group by job having sum(salary) > 50000;
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| Developer |       65000 |
+| Tester    |       56000 |
++-----------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> select job, sum(salary) from employee where job != 'Manager'  group by job having sum(salary) > 50000 order by sum(salary);
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| Tester    |       56000 |
+| Developer |       65000 |
++-----------+-------------+
+2 rows in set (0.00 sec)
+
+steps for above select query with all clauses:
+----------------------------------------------
+step1:
+mysql> select job, salary from employee where job != 'Manager' ;
++-----------+--------+
+| job       | salary |
++-----------+--------+
+| President |  50000 |
+| Salesman  |   3000 |
+| Developer |  35000 |
+| Developer |  30000 |
+| Tester    |  25000 |
+| Tester    |  31000 |
++-----------+--------+
+6 rows in set (0.00 sec)
+step2:
+mysql> select job, salary from employee where job != 'Manager'  group by job;
++-----------+--------+
+| job       | salary |
++-----------+--------+
+| President |  50000 |
+| Salesman  |   3000 |
+| Developer |  35000 |
+| Tester    |  25000 |
++-----------+--------+
+4 rows in set (0.00 sec)
+step3:
+mysql> select job, sum(salary) from employee where job != 'Manager'  group by job;
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| President |       50000 |
+| Salesman  |        3000 |
+| Developer |       65000 |
+| Tester    |       56000 |
++-----------+-------------+
+4 rows in set (0.00 sec)
+
+step4:
+mysql> select job, sum(salary) from employee where job != 'Manager'  group by job having sum(salary) > 50000;
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| Developer |       65000 |
+| Tester    |       56000 |
++-----------+-------------+
+2 rows in set (0.00 sec)
+
+step5:
+mysql> select job, sum(salary) from employee where job != 'Manager'  group by job having sum(salary) > 50000 order by sum(salary);
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| Tester    |       56000 |
+| Developer |       65000 |
++-----------+-------------+
+2 rows in set (0.00 sec)
+
+
+
+JOINS:
+-----
+Joins are used to combine records from multiple tables. 
+
+EQUI JOIN
+NON-EQUI JOIN
+
+CROSS JOIN
+INNER JOIN
+SELF JOIN
+
+LEFT OUTER JOIN
+RIGHT OUTER JOIN
+FULL OUTER JOIN
+
+
+INNER JOIN  on Employee and Dept tables
+-----------------------------------------
+mysql> CREATE TABLE DEPT(DNO INTEGER(3) PRIMARY KEY , DNAME VARCHAR(12), LOCATION VARCHAR(20));
+Query OK, 0 rows affected, 1 warning (0.13 sec)
+
+mysql> INSERT INTO DEPT VALUES(10,'DEVELOPMENT','HYDERABAD');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO DEPT VALUES(20,'TESTING','BANGLORE');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO DEPT VALUES(30,'HR','DELHI');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO DEPT VALUES(40,'SALES','MUMBAI');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO DEPT VALUES(50,'OPERATION','CHENNAI');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> SELECT * FROM DEPT;
++-----+-------------+-----------+
+| DNO | DNAME       | LOCATION  |
++-----+-------------+-----------+
+|  10 | DEVELOPMENT | HYDERABAD |
+|  20 | TESTING     | BANGLORE  |
+|  30 | HR          | DELHI     |
+|  40 | SALES       | MUMBAI    |
+|  50 | OPERATION   | CHENNAI   |
++-----+-------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMPLOYEE;
++-----+--------+--------+------------+-----------+------+
+| Eid | Ename  | Salary | Doj        | Job       | comm |
++-----+--------+--------+------------+-----------+------+
+| 101 | King   |  50000 | 2022-11-16 | President | NULL |
+| 102 | Tom    |   3000 | 2022-11-17 | Salesman  | 1500 |
+| 103 | Smith  |  40000 | 2022-11-14 | Manager   | NULL |
+| 104 | Javeed |  35000 | 2022-11-17 | Developer |  500 |
+| 105 | Charan |  30000 | 2022-11-17 | Developer |  500 |
+| 106 | Scott  |  25000 | 2022-11-16 | Tester    | 1000 |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    | 1000 |
++-----+--------+--------+------------+-----------+------+
+7 rows in set (0.00 sec)
+
+mysql> ALTER TABLE EMPLOYEE ADD(dno  integer(3));
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> SELECT * FROM EMPLOYEE;
++-----+--------+--------+------------+-----------+------+------+
+| Eid | Ename  | Salary | Doj        | Job       | comm | dno  |
++-----+--------+--------+------------+-----------+------+------+
+| 101 | King   |  50000 | 2022-11-16 | President | NULL | NULL |
+| 102 | Tom    |   3000 | 2022-11-17 | Salesman  | 1500 | NULL |
+| 103 | Smith  |  40000 | 2022-11-14 | Manager   | NULL | NULL |
+| 104 | Javeed |  35000 | 2022-11-17 | Developer |  500 | NULL |
+| 105 | Charan |  30000 | 2022-11-17 | Developer |  500 | NULL |
+| 106 | Scott  |  25000 | 2022-11-16 | Tester    | 1000 | NULL |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    | 1000 | NULL |
++-----+--------+--------+------------+-----------+------+------+
+7 rows in set (0.00 sec)
+
+mysql> update employee  set dno = 10 where job = 'Developer';
+Query OK, 2 rows affected (0.03 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update employee  set dno = 20 where job = 'Tester';
+Query OK, 2 rows affected (0.04 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update employee  set dno = 30 where job = 'Manager';
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee  set dno = 40 where job = 'Salesman';
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++-----+--------+--------+------------+-----------+------+------+
+| Eid | Ename  | Salary | Doj        | Job       | comm | dno  |
++-----+--------+--------+------------+-----------+------+------+
+| 101 | King   |  50000 | 2022-11-16 | President | NULL | NULL |
+| 102 | Tom    |   3000 | 2022-11-17 | Salesman  | 1500 |   40 |
+| 103 | Smith  |  40000 | 2022-11-14 | Manager   | NULL |   30 |
+| 104 | Javeed |  35000 | 2022-11-17 | Developer |  500 |   10 |
+| 105 | Charan |  30000 | 2022-11-17 | Developer |  500 |   10 |
+| 106 | Scott  |  25000 | 2022-11-16 | Tester    | 1000 |   20 |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    | 1000 |   20 |
++-----+--------+--------+------------+-----------+------+------+
+7 rows in set (0.00 sec)
+
+mysql> select * from dept;
++-----+-------------+-----------+
+| DNO | DNAME       | LOCATION  |
++-----+-------------+-----------+
+|  10 | DEVELOPMENT | HYDERABAD |
+|  20 | TESTING     | BANGLORE  |
+|  30 | HR          | DELHI     |
+|  40 | SALES       | MUMBAI    |
+|  50 | OPERATION   | CHENNAI   |
++-----+-------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from  Employee INNER JOIN DEPT ON (DNO = DNO);
+ERROR 1052 (23000): Column 'DNO' in on clause is ambiguous
+mysql> select * from  Employee E INNER JOIN DEPT D ON (E.DNO = D.DNO);
++-----+--------+--------+------------+-----------+------+------+-----+-------------+-----------+
+| Eid | Ename  | Salary | Doj        | Job       | comm | dno  | DNO | DNAME       | LOCATION  |
++-----+--------+--------+------------+-----------+------+------+-----+-------------+-----------+
+| 102 | Tom    |   3000 | 2022-11-17 | Salesman  | 1500 |   40 |  40 | SALES       | MUMBAI    |
+| 103 | Smith  |  40000 | 2022-11-14 | Manager   | NULL |   30 |  30 | HR          | DELHI     |
+| 104 | Javeed |  35000 | 2022-11-17 | Developer |  500 |   10 |  10 | DEVELOPMENT | HYDERABAD |
+| 105 | Charan |  30000 | 2022-11-17 | Developer |  500 |   10 |  10 | DEVELOPMENT | HYDERABAD |
+| 106 | Scott  |  25000 | 2022-11-16 | Tester    | 1000 |   20 |  20 | TESTING     | BANGLORE  |
+| 107 | Ford   |  31000 | 2022-11-18 | Tester    | 1000 |   20 |  20 | TESTING     | BANGLORE  |
++-----+--------+--------+------------+-----------+------+------+-----+-------------+-----------+
+6 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
