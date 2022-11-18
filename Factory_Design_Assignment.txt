@@ -1,0 +1,114 @@
+abstract class User{
+
+	
+
+
+}
+
+
+class Client extends User{
+
+
+
+}
+
+
+class  Visitor extends User{
+
+
+
+}
+
+
+class BeanFactory{
+
+
+public   User	getBean(String userType){
+
+	User user = null;
+		
+		String type =userType.toUpperCase();
+
+	switch(type){
+
+	case "CLIENT":
+		user = new Client();
+	
+	break;
+		
+	case "VISITOR":
+
+		user = new Visitor();
+
+	break;
+
+	}
+
+	return user;
+
+	}
+
+
+
+}
+
+
+
+
+class Main {
+
+	main(){
+
+
+
+	String userType = scanner.next(); // "client" or "visitor"	
+
+	BeanFactory factory = new BeanFactory();
+
+	User user1 = factory.getBean(userType);
+
+	User user2 = factory.getBean(userType);
+
+
+
+	}
+
+
+
+
+}
+
+---------------------------------------
+
+OOPs
+Inheritance,Abstract class, interface, implementation class
+Polymorphism: overriding , overloading
+Variables: local var, static  var , instance var
+Pojo Classes:  using setter , getter , param-constructors 
+Collections : List , Set, Map , TreeSet
+Lambda Exp: Basics
+Stream API: all important methods 
+Exception Handling basics
+SQL Basics (DML , SELECT , JOINS,SUB-QUERY)
+
+
+WATCH VIDEO FOR NEXT SESSION:
+JDBC 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
