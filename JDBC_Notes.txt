@@ -1,0 +1,101 @@
+
+
+JDBC API:
+---------
+Java Database Connectivity
+
+java.sql.*;
+
+Interface:
+-----------
+Driver
+Connection
+Statement (static queries )  
+Ex:  select * from employee; or create table emp(eid int ,ename varchar); 
+Ex: drop table employee;
+
+
+PreparedStatement **
+
+Static queries
+Dynamic queries
+
+
+CallableStatement(not required)
+ResultSet
+
+
+Classes:(utility class given java people)
+--------
+DriverManager
+Date
+
+
+JDBC Steps:
+-----------
+
+1. Register Driver
+2. Get Connection
+3. Create any one JDBC  Statement
+4. Write and Execute SQL Query 
+(select query - executeQuery(); or non-select[DML] query executeUpdate(); )
+5. close connection
+
+
+
+
+interface Driver{
+// abstract methods();
+
+
+
+}
+
+package   com.oracle.jdbc;  // inside jar file
+
+class OracleDriver implements Driver{  // DriverManager
+
+
+
+}
+
+
+package  com.mysql.cj.jdbc;
+
+class Driver   implements Driver{
+
+
+	// implemented all methods
+
+
+}
+
+
+IP-Address:
+=============
+An unique identity given to every machine which help us to identity particular device on networks like internet , ethernet , LAN , WAN etc.
+0-255
+Ex:  1.27.45.100  ,   2.0.0.9 
+
+1.55.21.78 ---> www.facebook.com
+1.0.0.127 ---> localhost
+Port No:
+Unique identity given to every software / application installed in our machines.
+Ex: 8080 , 9090 , 1234 , 3306 
+
+
+
+INSERT and UPDATE are logically same
+
+
+SELECT ONE and DELETE ONE are logically same
+
+
+SELECT ALL
+
+
+update product  set  pname = ? , price = ? , dop = current_date where pid = ?;
+
+
+
+
