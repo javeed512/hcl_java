@@ -60,6 +60,33 @@ public class Main {
 				
 				break;
 			case 2:
+				System.out.println("Enter Pid");
+				int pid1 = scanner.nextInt();
+				System.out.println("Enter PName");
+				String pname1 = scanner.next();
+				System.out.println("Enter Price");
+				double  price1 = scanner.nextDouble();
+				
+				Product product1 = new Product();
+						product1.setPid(pid1);
+						product1.setPname(pname1);
+						product1.setPrice(price1);
+						
+				
+				
+				int count1 =	service.updateProduct(product1);
+				
+					if(count1 > 0) {
+						
+						System.out.println(count1+" Product Updated Successfully");
+						
+					}
+					else {
+						
+						System.err.println("Update Failed...");
+					}
+				
+				
 
 				break;
 			case 3:

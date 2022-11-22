@@ -1,0 +1,154 @@
+
+Types of Applications:
+-------------------------
+1.Console App / Desktop  ---> JSE(core java)
+Ex: Notepad , IDE , Browser , MS Office , O.S
+It need to be install in each and every system/machine
+CLI- Command Line Interface
+
+2.Web App  ----> JEE (Adv Java)
+Web Technologies 
+HTML,JS,SERVLETS , JSP...
+Web Apps or JEE Apps need Web Server to Host WebApps and Internet connection.
+Ex: Any Websites 
+Facebook , Gmail , Google, Flipkart , Amazon , Olympus , Youtube....
+
+GUI - Graphical User Interface
+
+3.Mobile Apps ---> JME or Android
+
+------------------------------------------
+Types of Servers:
+----------------
+1.Web Server
+It can host only web apps
+Ex: Tomcat Server
+Servlet Engine , JSP Engine
+
+2.Application Server
+It can host web apps as well as enterprise applications.
+ Facebook , Amazon , Google 
+Ex: Weblogic , GlassFish , JBoss , Pivotal servers
+
+IP-Address:
+------------
+Unique Number/Identity given to every machine , which is used to connect with different machines on networks.
+EX: 1.0.0.127 , 130.54.98.77  , 2.99.30.101
+
+Port Number : Unique Identity given to every app/software in our machine.
+Ex: 8080,9090, 3306 , 4200 
+
+
+Front End / Web Technologies to create Web Pages
+HTML
+JSP
+JavaScript
+CSS
+Bootstrap
+Angular
+ReactJS
+PHP
+
+
+------------------
+Protocols
+Http/Https
+Stateless Protocol
+
+
+
+FTP , SMTP, UDP/IP .... 
+StateFul Protocols
+
+
+-------------------------------------------------
+JEE 
+Servlet API:
+-------------
+
+javax.servlet.*;
+
+Interfaces:
+------------
+Servlet
+ServletRequest
+ServletResponse
+ServletConfig
+RequestDispatcher
+
+class:
+======
+GenericServlet
+
+
+
+
+
+javax.servlet.http.*;
+-------------------------
+Interface
+---------
+HttpServletRequest
+HttpServletResponse
+HttpSession
+
+Classes:
+---------
+HttpServlet
+Cookies
+
+
+
+
+Life Cycle Methods:
+--------------------
+
+init()  --> Only once in the begining program
+service() ----> it execute for every request
+destroy() --> Only once at the end of program
+
+
+
+Note: Data send from Browser/Client to the Server/Servlets can be get from request object.
+
+NOte2: Data can be send from Server/Servlets to the Browser using response object.
+
+
+
+GET method:
+By default all request are GET and its not secure because it append data in url and send to the server.
+
+POST method:
+Its always safe to send data from browsers to servers because it uses Request Body to send data securely.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

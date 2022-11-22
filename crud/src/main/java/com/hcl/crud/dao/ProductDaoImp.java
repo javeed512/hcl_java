@@ -43,8 +43,27 @@ public class ProductDaoImp implements IProductDao {
 
 	@Override
 	public int updateProduct(Product product) {
-		// TODO Auto-generated method stub
-		return 0;
+		String updateQuery = "update product set pname = ? , price = ? , dop = current_date where pid =?";
+
+		int count = 0;
+
+		try {
+
+			pstmt = conn.prepareStatement(updateQuery);
+
+		
+			pstmt.setString(1, product.getPname());
+			pstmt.setDouble(2, product.getPrice());
+			pstmt.setInt(3, product.getPid());
+			
+			count = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return count;
 	}
 
 	@Override
@@ -74,7 +93,7 @@ public class ProductDaoImp implements IProductDao {
 	public Product selectProductById(int pid) {
 		String selectOne = "select * from product where pid = ?";
 
-		int count = 0;
+		
 		Product product = new Product();
 
 		try {
