@@ -1,0 +1,10 @@
+
+Create New Database:
+--------------------
+
+create database  contact_manager_db;
+
+create  table  User_Table(userid integer(3) primary key , username varchar(15),password varchar(20));
+
+
+create table  contact_table(contactNumber integer(10) primary key,contactName varchar(20),email varchar(25), address  varchar(20));

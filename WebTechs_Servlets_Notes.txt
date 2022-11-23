@@ -122,19 +122,57 @@ POST method:
 Its always safe to send data from browsers to servers because it uses Request Body to send data securely.
 
 
+Servlet Inter-Communications: (Servlet Chaining)
+-------------------------------------------------
+One Servlet can talk to another servlet or to any other resource
+(html page / jsp page / servlet)
+
+
+RequestDispatcher  rd = request.getRequestDispatcher("any-resource-name");
+
+rd.forward(request,response);
+It will forward request from current servlet to another resource
+In this case only final ouput means only output from last page/resource will be displayed
+
+		
+
+rd.include(request,response);
+It will not forward request , it include request nothing output of current page and also the next resource output.
+
+
+Scope Variables/Objects in Servlets
+--------------------------------------
+1. request
+2.  session
+3.  context/application
+
+Note: above 3 object have  3 methods
+1   xxx.setAttribute(k,v)
+2   xxx.getAttribute(k)
+3   xxx.removeAttribute(k)
+
+Session Tracking
+----------------
+session object help us to store data in session scope using session.setAttribute(k,v);
+and get same value in other servlets or jsp pages using session.getAttribute(k)
+
+
+To Destroy session object or To Logout   or To expire session time in applications we can use  session.invalidate();  method.
+
+
+Cookies
+--------
 
 
 
 
+Filters in Servlets
+
+Listeners in Servlets
 
 
 
-
-
-
-
-
-
+Project using HTML + JSP + Servlet + JDBC
 
 
 
