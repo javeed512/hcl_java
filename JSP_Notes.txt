@@ -1,0 +1,234 @@
+JSP:
+Java Server Pages , they run on web servers(tomcat) 
+In JSP we can have any HTML + any Java Code 
+JSP = HTML+ Java
+Servlet = Java + HTML
+
+JSP ELEMENTS:
+--------------
+1.JSP Scriplet <%  any java code %> 
+2.JSP  Expression <%=  any java exp %>
+3.JSP  Declaration  <%! for decalaring vars/methods %>
+4.JSP EL-Expression  ${ }
+5.JSP  Action Tags <jsp:tagName>
+6.JSP Directives  <%@  %>
+7.JSTL (jsp standard tag library)
+
+
+
+JSP Directives  <%@  %>
+------------------------
+i. page ii.taglib iii.include
+Directives help us to provide additional instructions to the JSP Compiler and Tomcat server.
+
+
+Implicit Object / Variables:
+----------------------------
+out
+request
+response
+session
+application
+config
+exception
+pageContext
+
+
+JSP Internal Flow:
+------------------
+JSP Life Cycle
+
+1.JSP file converted to Java File(Auto Generated Servlet) by JSP Compiler
+2.Java file(Auto Generated Servlet) get compile to  .class file by Java Compiler
+3.JVM executes .class file when tomcat server call jvm.
+ 
+
+
+demo.jsp  file
+--------------
+HELLO FRIENDS!
+<%
+
+int x = 99;
+System.out.println(x);
+
+out.print("<H1>Welcome o JSP </H1>");
+%>
+
+------------------------------
+Tomcat Server
+
+JSP Engine
+
+//Auto Generated Servlet
+class  DemoServlet   extends HttpServlet{
+
+	
+static int salary;
+String city;
+	
+	public void m1(){
+	
+	
+	}
+
+	
+
+	public Config jspInit(){
+
+
+
+	}	
+
+	publi void jspService(HttpServletRequest request,HttpServletResponse response){  			
+
+
+	// doGet() , doPost()
+
+	JspWriter out;
+	HttpSession session;
+	ServletContext application;
+	Exception exception;
+	PageContext page;
+	
+
+		int x = 99;
+		System.out.println(x);
+
+		out.print("Hello Friend")
+		
+		out.print("<h1>WELCOME TO JSP</h1>");
+
+		out.print("<H1>Welcome o JSP </H1>");
+
+
+
+		session.setAttribute("name", "javeed");
+	
+	request.getParameter("uname");
+		
+		out.print(x);
+
+		out.print("X Value is:")
+
+
+		out.print("Your Name is :");
+		out.print(name);
+
+	}
+
+	public void  jspDestroy(){
+
+
+	}
+
+
+
+
+
+
+}
+
+
+
+-------------------------------------------------
+JSP Action Tags:
+-------------------
+In Servlet/Scriplet
+<%
+RequestDispatcher  rd = request.getRequestDispatcher("PaymentServlet");	
+						
+				//rd.forward(request, response);
+					
+				rd.include(request, response);
+
+%>
+
+
+jsp action tag for above code
+
+<jsp:include>
+<jsp:forward>
+
+
+
+===================
+
+class ProductServlet
+---------------
+Product
+pid
+pname
+price
+
+// TO get data from html forms use
+int pid = request.getParameter("pid");
+String pname = request.getParameter("pname");
+double price = request.getParameter("price");
+
+Product product = new Product();
+	product.setPid(pid);
+	product.setPName(pname);
+	product.setPrice(price);
+
+
+HttpSession session = request.getSession();
+
+session.setAttribute("product",product);
+
+RequestDispatcher  rd = request.getRequestDispatcher("DisplayServlet");	
+						
+				//rd.forward(request, response);
+					
+				rd.include(request, response);
+
+
+
+
+
+---------------------------------------
+
+class DisplayServlet{
+
+
+
+
+	doGet(){
+
+		HttpSession session = request.getSession();
+
+	Product product =(Product) session.getAttribute("product");
+		
+		product.getPid();
+		product.getPname();
+		product.getPrice();
+
+	
+
+
+
+	}
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
