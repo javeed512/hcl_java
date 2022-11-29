@@ -1,0 +1,161 @@
+Spring Framework:
+------------------
+
+API:
+----
+Set of predefined Interfaces,classes,methods,annotations etc.
+
+
+Framework:
+----------
+Set of APIs , which help us to implement Console or Web Application by using those predefined APIs.
+
+
+SpringFramework:
+================
+->Its a framework given by John Rodson , 
+->It is modular in nature , we can take any of the modules and implement projects.
+
+
+Dependency Injection:
+---------------------
+
+@Component
+class Address{
+private String city;
+}
+
+@Component
+class Employee{
+
+ private int eid;
+ private String ename;
+ 
+ @Autorwired
+ private Address address;
+
+ 
+}
+
+---------------
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Address a1 = new Address();
+		a1.setAid(501);
+		a1.setCity("Hyderabad");
+		Employee e1 = new Employee();
+		
+			e1.setEid(101);
+			e1.setEname("Javeed");
+			e1.setAddress(a1);   // setter method dependency injection
+			
+			
+	Employee e2 = new Employee(102, "Charan", a1); // construtor DI		
+		
+
+	}
+
+}
+
+
+---------------------------------
+
+IOC : Inversion of Control.
+
+Ex: If person A given some task to do but instead of person A , person B is doing that task and 
+      person A enjoying the result of that task. It is know as  IOC.
+
+In Spring Framework , instead of developer do lots of work Spring IOC Container will be doing lots of work on behalf of Developers and we developer will enjoy the result.
+
+IOC Container can perform following.
+1.Reading Meta data from Annotations.
+2.Creating / Instantiating objects for Beans/Components (any java class)
+3.Injecting objects : One object to another.
+4.DI can be done either by using setters or parameter-constructors by IOC.
+5. DI is also known as auto-wiring.
+
+------------------------------------------------------------------------------------
+
+Maven Tool:
+-----------
+Java Development tool use to build java project automatic.
+
+1. Compile all .java files
+2. packaging jar or war file
+3. It can download all dependencies/jar files from remote/online
+4. Building and Cleaning project
+5. Help to set project properties etc
+
+POM: Project Object Model xml file
+
+pom.xml
+--------
+
+ 
+
+
+
+
+
+
+Spring Annotations:
+-----------------------
+Annotations used to create objects of any java classes.
+@Component
+@Service
+@Repository
+@Controller
+
+
+@Bean
+
+To configure application  
+@Configuration
+
+To scan packages
+@ComponentScan("package-name")
+
+
+To Inject or Autowire any existing object to its reference var in another class use
+@Autowired
+
+
+
+Web Applications Annotations:
+------------------------------
+
+@Controller
+@RequestMapping
+
+Rest-API:
+----------
+@RestController
+@GetMapping
+@PostMapping
+@PutMapping
+@DeleteMapping
+
+@RequestBody
+@ResponseBody
+
+@PathVariable
+
+
+Spring framework scopes:
+-------------------------
+1.singleton  --> always return single object for whole application
+2. prototype  ---> always creates a new object and return
+
+3. request
+4. session
+5. application
+
+Note: By default scope of any bean object is singleton
+
+
+
+
+
