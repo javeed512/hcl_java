@@ -1,0 +1,128 @@
+Spring AOP reference:
+----------------
+https://docs.spring.io/spring-framework/docs/2.5.5/reference/aop.html
+
+Note: For more notes on AOP please refer above link
+
+
+
+===================================================
+API:
+package
+ |- interfaces
+ |- classes
+	|- set of methods	
+
+
+
+Spring AOP:
+-----------
+
+AOP: Aspect Oriented Programming concepts
+
+
+with out aop:
+
+
+class ShoppingCartService{
+
+
+	log(){  // concerns
+
+	}		
+
+
+	addProduct(){
+		log();
+
+	// business logics
+
+	   log();
+
+	}
+	
+	removeProduct(){
+	log();
+
+	// business logics
+
+	   log();
+
+	}
+
+
+}
+
+
+
+with AOP
+---------
+
+class LoggingAspect{ //Aspect
+
+		@Before("execute(com.eshop.ShoppingCartService.addProduct())")
+		log(){
+
+			logging messages
+		}
+
+
+		//@After("execute(com.eshop.*.*())")
+		log2(){
+
+			logging messages
+		}
+
+		
+		@AfterThrowing("execute(com.eshop.ShoppingCartService.addProduct())")
+		log3(){
+
+		}
+
+		@AfterReturning(pointcut="execute(com.eshop.ShoppingCartService.addProduct())",returing="obj")
+		log3(Object obj){
+
+		}
+
+
+}
+
+
+
+
+
+class ShoppingCartService{
+
+
+
+	addProduct(){
+		
+
+	// business logics
+
+	return productList;
+
+	}
+	
+	removeProduct(){
+	
+
+	// business logics
+
+	  
+
+	}
+
+
+}
+
+
+Aspect: A java class where cross cutting concerns like loggin, transaction management,authentication, authorization can be implemented by seperating them from regular business services.
+
+Join Point :  In Spring AOP, a join point always represents a method execution.
+
+Advice: action taken by an aspect at a particular join point. Different types of advice include "around," "before" and "after" advice , "after returing" , "after throwing"
+
+Pointcut: a predicate that matches join points. Advice is associated with a pointcut expression and runs at any join point matched by the pointcut (for example, the execution of a method with a certain name).
+
+

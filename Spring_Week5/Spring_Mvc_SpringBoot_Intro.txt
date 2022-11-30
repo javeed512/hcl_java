@@ -1,0 +1,43 @@
+
+In Old way of creating Spring Web MVC/ Java Web project
+1. External Tomcat server
+2. Jars file
+3. Maven tool
+4. We need to search and copy all depencencies manually (pom.xml file).
+5. spring xml config file 
+6. External Databases.
+
+
+Spring Boot:
+-----------
+1. It has Embedded Tomcat server(run on port:8080)
+2. It has maven tool by default
+3. It has options to select what depencencies we need so that it can add them in pom.xml (by itself)
+4. It gives application.properties file where we can prove configuration easily 
+(no head ache of learning xml)
+5. It give Embedded Database like H2 (no need to depend on external DBs)
+
+Note: Springboot does not support jsp
+
+
+
+
+We can create Spring Boot Project in 3 ways:
+---------------------------------------------
+1. STS ---> In sts , goto new--> select --> spring starter project option  
+2. Goto spring.io / spring initilizr and create project
+Note: In above step you will get zip file , extract zip file and import project in Eclipse.
+3. Spring CLI ---> Command line interface  (not for you)
+
+
+
+http://localhost:8080/hello
+
+
+
+
+
+
+
+
+
