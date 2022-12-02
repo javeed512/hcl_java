@@ -1,0 +1,56 @@
+JPA:
+Java Persistance API
+
+JPA depends on ORM Tools
+
+ORM- Object Relational Mapping.
+
+
+Database Framework based on ORM:
+---------------------------------
+Hibernate , Ibatis , TopLinks .....
+
+Hibernate ORM Framework:
+------------------------
+1.It can create tables automatic.
+2.It can do type conversion 
+Ex: long ---> integer
+     String ----> varchar
+3.It can maintained Tables in RDBMS for every Entity/Bean Classes in Java.
+4.Mapping between entities or tables can be done.
+5. Transaction management 
+
+
+
+
+Spring Data JPA:
+----------------
+Spring Data JPA ---> JPA Api ---> Hibernate API
+
+Interfaces:
+-----------
+Repository<Entity,ID>
+CrudRepository<Entity,ID>
+PagingandSortingRepository<Entity,ID>
+JpaRepository<Entity,ID>
+
+
+METHODS from above Interfaces:
+-------------------------------
+->Entity save(Entity obj);
+save() can be use for insert as well as update purpose.
+
+->Optional<Entity> findById(id);
+to find/select record based on id or primary key
+
+->void deleteById(id)
+to delete/remove record based on id or primary key
+
+->List<Entity>  findAll()
+to select all records 
+
+
+
+
+
+
