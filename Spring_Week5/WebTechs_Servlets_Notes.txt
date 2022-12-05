@@ -1,56 +1,19 @@
-JPA:
-Java Persistance API
 
-JPA depends on ORM Tools
+SQL
+----
+TABLE and COLUMN
 
-ORM- Object Relational Mapping.
+select eid,emp_name,salary from employe_table where salary between  5000  and 20000 order by salary asc;
+select * from employee_table;
 
+JPQL:
 
-Database Framework based on ORM:
----------------------------------
-Hibernate , Ibatis , TopLinks .....
+SELECT  e.eid,e.ename,e.salary from  Employee  e  where salary = ?;
 
-Hibernate ORM Framework:
-------------------------
-1.It can create tables automatic.
-2.It can do type conversion 
-Ex: long ---> integer
-     String ----> varchar
-3.It can maintained Tables in RDBMS for every Entity/Bean Classes in Java.
-4.Mapping between entities or tables can be done.
-5. Transaction management 
+SELECT e from Employee e;
+
+insert into Employee values(?,?,?);
 
 
-
-
-Spring Data JPA:
-----------------
-Spring Data JPA ---> JPA Api ---> Hibernate API
-
-Interfaces:
------------
-Repository<Entity,ID>
-CrudRepository<Entity,ID>
-PagingandSortingRepository<Entity,ID>
-JpaRepository<Entity,ID>
-
-
-METHODS from above Interfaces:
--------------------------------
-->Entity save(Entity obj);
-save() can be use for insert as well as update purpose.
-
-->Optional<Entity> findById(id);
-to find/select record based on id or primary key
-
-->void deleteById(id)
-to delete/remove record based on id or primary key
-
-->List<Entity>  findAll()
-to select all records 
-
-
-
-
-
-
+pstmt.setInt(1,101);
+pstmt.setString(2,"javeed");

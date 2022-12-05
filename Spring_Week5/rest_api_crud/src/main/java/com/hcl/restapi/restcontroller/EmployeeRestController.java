@@ -3,6 +3,7 @@ package com.hcl.restapi.restcontroller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -69,8 +70,43 @@ public class EmployeeRestController {
 		
 	}
 	
+	@GetMapping("/getbyname/{ename}")
+	public Employee  getByName(@PathVariable String ename) {
+		
+		
+		return service.getEmployeeByName(ename);
+		
+	}
+	
+	@GetMapping("/getbysalary/{salary}")
+	List<Employee>  getEmployeeBySalary(@PathVariable double salary){
+		
+		
+		return service.getEmployeeBySalary(salary);
+		
+	}
 	
 	
+	@GetMapping("/getbyrange/{low}/{high}")
+	public List<Employee> getEmployeesByRange(@PathVariable double low, @PathVariable   double high) {
+		
+		return service.getEmployeesByRange(low, high);
+	}
+
+	/*
+	 * @DeleteMapping("/deletebyname/{ename}") public void
+	 * deleteByEname(@PathVariable String ename) {
+	 * 
+	 * service.deleteByEname(ename);
+	 * 
+	 * }
+	 */
 	
+	@GetMapping("/getsorted")
+	public List<Employee> getAllSorted() {
+		
+		
+		return service.getAllSorted();
+	}
 	
 }

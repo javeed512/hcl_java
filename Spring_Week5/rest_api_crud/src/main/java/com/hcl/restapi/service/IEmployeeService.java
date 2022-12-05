@@ -16,5 +16,17 @@ public interface IEmployeeService {
 	
 	public   List<Employee>  getAllEmployees();
 	
+	public Employee  getEmployeeByName(String ename);
+	
+	List<Employee>  getEmployeeBySalary(double salary);
+	
+	
+	List<Employee>  getEmployeesByRange(double low, double high);
+	
+	
+	//public void  deleteByEname(String ename);
+	
+	
+	List<Employee>  getAllSorted();
 	
 }

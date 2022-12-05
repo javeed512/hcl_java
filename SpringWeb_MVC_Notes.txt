@@ -1,0 +1,50 @@
+
+Spring Web MVC:
+----------------
+It is used to develope Web Applications using  predefined Spring MVC architecture.
+
+In this will have 2 servlets/controllers 
+1. DispatcherServlet (every request and response will be through this servlet)
+2. It will take help of  HandlerMapping to connect with custom servlets/controllers
+3. Will have InternalViewResolver which help DispatcherServlet to find out views information/path.
+4. Every Mapping/Resources/Methods inside controller can return i. text ii.view/page name iii.data
+
+/views/display.jsp
+
+Spring Web MVC Annotations
+----------------------------
+@RequestMapping
+@ResponseBody
+
+@RequestParam for reading single value
+
+
+
+
+
+
+
+Lombok Project
+jar file / api
+
+Annotations
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
+@ToString
+@EqualsandHashcode
+@Slf4J   // logging 
+public class Product{
+
+
+	private int pid;
+	private String pname;
+	private  double price;
+	private String color;
+	
+
+
+
+}
