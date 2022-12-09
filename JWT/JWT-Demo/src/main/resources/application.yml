@@ -1,0 +1,8 @@
+
+
+
+
+jwt:
+  secret: secretkey123
+  
+  
