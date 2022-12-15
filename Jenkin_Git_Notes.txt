@@ -1,0 +1,36 @@
+Git Commands:
+-------------
+1. To make any folder as local git repo use
+-> git init
+
+
+
+
+
+
+
+
+
+Jenkins:
+---------
+1. Goto Jenkins folder and open command prompt in that folder
+2. Run jenkins.war file using java -jar command
+ -> java -jar  jenkins.war
+3. Goto any browser and open jenkin dashboard
+ex: http://localhost:8181/    ---> jenkins dashboard
+
+
+
+
+
+Git and GitHub/GitLab/BitBucket
+----------------------------------:
+
+GitHub: It is a Centralised distributed version control systems
+
+Git: To connection with any Remote SCM , we need client software in local machine that client software is Git.
+
+Note: Int GitHub/GitLab we can create repositories we can be used as private / public to access project code or to push project code by any developer.
+
+
+Create New GitHub Repository by connecting to GitHub Portal / website 

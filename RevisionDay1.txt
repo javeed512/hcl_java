@@ -1,0 +1,132 @@
+
+Annotations:
+=============
+
+@Component
+@Service
+@Repository
+
+@Bean
+@Configuration
+
+@ComponentScan
+
+@Scope
+
+Web
+====
+
+@Controller
+@RequestMapping
+@ResponseBody
+
+Rest API
+===========
+@RestController
+@RequestBody
+@PathVariable
+
+@GetMapping
+@PostMapping
+@PutMapping
+@DeleteMapping
+
+@Value
+
+
+
+
+Tools:
+--------
+Postman , Swagger , Soap UI
+
+
+IOC Container:
+
+DI: 
+
+Spring Framework Basics
+Spring JDBC Template
+Spring JPA Mappings
+
+Spring Boot Basics
+
+digitalOcean
+howtodoinjava
+javainuse
+
+
+
+Complete Grade-6
+Mini Project-2
+
+
+================================
+
+Day2 Revision
+---------------
+
+
+
+Finish Mini Project 2
+
+Grade - 6 
+
+By EOD
+
+-------------
+
+Spring MVC 
+ Rest API and JSON
+Spring Rest API
+
+Spring Boot 
+Spring Data JPA
+Mappings , @Query , select and DML queries
+Swagger/Postman/Soap UI
+JWT theory with program execution
+BCrypt
+
+Lombok
+Actuator
+yaml file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
