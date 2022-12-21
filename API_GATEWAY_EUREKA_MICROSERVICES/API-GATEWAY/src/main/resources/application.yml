@@ -1,0 +1,39 @@
+
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+      
+          
+      register-with-eureka: true
+      fetch-registry:  true
+ 
+  instance:
+    hostname: localhost
+      
+     
+spring:
+  application:
+    name:  API-GATEWAY
+    
+    
+    
+  cloud:
+    gateway:
+      routes:
+      
+      - id: DEPARTMENT-MICROSERVICE                   #http://localhost:8081/api/departments
+        uri: lb://DEPARTMENT-MICROSERVICE
+        predicates:
+        - Path=/api/departments/**
+      
+     
+      - id:  USER-MICROSERVICE                       #http://localhost:8082/api/users
+        uri: lb://USER-MICROSERVICE
+        predicates:
+        - Path=/api/users/**
+        #- Path=/api/users/get-user-dept/**
+            
+    
