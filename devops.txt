@@ -1,0 +1,85 @@
+Devops:
+--------
+
+
+
+
+Development Env 
+---------------
+Devs
+
+JDK 
+Tomcat
+Spring Boot
+lombok
+database: mysql, oracle
+
+Development Apps
+ app.jar file
+--------------------------------------------------------------
+Production Env
+
+Ops
+
+JDK 
+Tomcat
+Spring Boot
+lombok
+database: mysql, oracle
+
+app.jar execute
+
+
+
+
+
+
+
+Agile SDLC method
+
+Devops 
+
+Maven tool
+
+Jenkins: Automation CI / CD 
+Building , Deployment
+
+Docker: Docker images will solve machine setup problem
+using docker images we can install or get any dev softwares into production machine virtually.
+
+Kubernetes
+
+
+Aws: Cloud 
+
+git and github or gitlab (remote repository)
+
+
+Check Code quality : SonarQube , Sonarlint , PMD ...
+
+
+
+Jenkins:
+--------
+Its a server used for CI/CD.
+
+CI - Continous Integration
+CD - Continous Deployment 
+
+Agile Methodology
+
+java archieves --> jar
+------------------
+.jar
+.war
+.ear
+
+
+
+
+
+
+
+
+
+
