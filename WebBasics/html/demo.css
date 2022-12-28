@@ -1,0 +1,89 @@
+
+input[type="text"] {
+
+    color:chartreuse;
+
+
+}
+
+input[type="email"] {
+
+    color: red;
+
+
+}
+
+/* 
+* {
+
+    color:red;
+} 
+*/
+
+form {
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+  }
+
+  form {
+    background-color: lightgrey;
+    width: 350px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+  }
+
+
+
+#id{
+
+        background-color: grey;
+        border-style: dotted;
+        border-color: red;
+
+         height: 12cm;
+         width: 15cm;   
+
+
+}
+#main {
+   
+    border: 1px solid black;
+    background-color: yellow;
+    display: flex;
+  }
+  
+  #main button {
+     
+    flex: 10;
+  }
+
+
+
+.btn1 {
+
+    background-color: green;
+
+
+}
+
+.btn2 {
+
+    background-color: red;
+
+
+}
+/* 
+select {
+
+        background-color: pink ;
+
+} */
+
+option{
+
+        background-color: orange;
+
+}

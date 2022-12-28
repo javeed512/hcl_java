@@ -1,0 +1,59 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="demo.css">
+
+
+</head>
+<body>
+
+    <form   action="hello.html"  method="post">
+
+       Username : <input type="text" name="uname" required /> <br>
+       Password : <input type="password"  name="password" required /><br>
+       DOB      : <input type="date" name="dob" /> <br>
+       Income   : <input type="number" name="income" /> <br>
+       Email ID : <input type="email" name="email" id="eid" required /> <br>
+       Gender   : <input type="radio" name="gender" value="male"> Male
+                <input type="radio" name="gender" value="female"> Female  <br>
+
+    Qualifications: <input type="checkbox" name="q1" value="1001" /> Degree              
+                     <input type="checkbox" name="q2" value="ms" /> Masters              
+                     <input type="checkbox" name="q3" value="pg" /> PG        <br>    
+                     
+    Country :    <select name="country" >
+                        <option value="NA">--select country--</option>
+                        <option value="ind" selected >India</option>
+                        <option value="aus">Australia</option>
+                        <option value="uae">Dubai</option>
+                        <option value="usa">USA</option>
+                        <option value="sing">Singapore</option>
+
+
+                </select>    <br>
+                
+     Remarks : <textarea  rows="6" cols="50" name='remarks' ></textarea> <br>
+     
+     Attachment:  <input type="file" name="attachment" />  <br>
+
+     <div id="main" >
+         <button type="submit"  class="btn1"  >Submit</button> 
+          <button type="reset" class="btn2">Clean</button>
+        </div>
+     
+
+
+    </form>
+
+
+
+    
+</body>
+</html>
