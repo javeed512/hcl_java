@@ -1,0 +1,22 @@
+{
+  "employees": [
+    {
+      "id": 101,
+      "ename": "Javeed",
+      "salary": 45000,
+      "doj": "2021-05-21"
+    },
+    {
+      "id": 102,
+      "ename": "King khan",
+      "salary": 550000,
+      "doj": "2023-01-01"
+    },
+    {
+      "id": 103,
+      "ename": "Sachine",
+      "salary": 330000,
+      "doj": "2023-01-01"
+    }
+  ]
+}

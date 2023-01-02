@@ -2,7 +2,8 @@ let activities = [
     {
     "id":1,
     "subject":"math",
-    "activity":"read tables from 2 to 10"
+    "activity":"read tables from 2 to 10",
+    "comments":""
     },
     {
     "id":2,
