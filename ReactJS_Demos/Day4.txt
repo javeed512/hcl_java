@@ -1,0 +1,46 @@
+
+
+this.state ={
+
+	username:"",
+	password:""
+
+
+}
+
+
+class User{
+
+ username;
+ password;
+//setter
+
+//gettter
+
+
+
+
+}
+
+User;
+
+----------------------
+
+  const  [userResgistration,setUserRegistration] =   setState({
+
+	username:"",
+	password:"",
+	date:""
+
+
+  });
+
+
+
+
+
+
+
+
+
+
