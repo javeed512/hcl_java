@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "title": "Cricket",
+      "author": "MS Dhoni"
+    },
+    {
+      "id": 3,
+      "title": "Automobiles",
+      "author": "Ratan Tata"
+    },
+    {
+      "id": 4,
+      "title": "Hockey",
+      "author": "Jaspreet Singh"
+    },
+    {
+      "title": "Music",
+      "author": "Arjit Singh",
+      "id": 10
+    }
+  ]
+}
