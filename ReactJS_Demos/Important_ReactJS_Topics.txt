@@ -1,0 +1,41 @@
+1.Components Basics 
+Function Components and Class Components
+2. props and state
+3. state management 
+Inside classes(directly using this.state) 
+Inside functions (hooks useState() and destructuring)
+Hooks:
+-----
+useState();
+useEffect();
+useRef();
+createRef();
+createContext();
+useParam();
+
+4.EventHandling
+
+5.Forms 
+Controlled Component Forms 
+Uncontrolled Component Forms
+
+6.Routings
+
+7. Fetch API CRUD and
+   Axios  API CRUD
+
+8. Boostrap
+9. Basics of Ecma script and Typescript
+  -> arrow function ,annonymous func, callback function , 		spread/rest parameter , destructuring 
+10. Json server
+11. Formiks (forms and input validations)
+12. End to End Testing using Cypress
+
+
+
+
+
+
+
+
+
