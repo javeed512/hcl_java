@@ -1,0 +1,14 @@
+
+-Cypress:
+->It is a automation testing tool. Used for E2E and Component Testing.
+
+Install Cypress:
+-------------------
+-> npm install  cypress -save-dev
+
+Open or Run Cypress:
+---------------------
+-> npx cypress open
+
+Above command opens UI Dashboard with options to select testing type, browser etc.
+

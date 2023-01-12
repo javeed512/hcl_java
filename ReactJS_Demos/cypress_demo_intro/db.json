@@ -1,0 +1,19 @@
+{
+  "posts": [
+    {
+      "id": 4,
+      "title": "Hockey",
+      "author": "Jaspreet Singh"
+    },
+    {
+      "id": "1",
+      "title": "Cricket",
+      "author": "Virat Kholi"
+    },
+    {
+      "id": "2",
+      "title": "Football",
+      "author": "Ronaldo"
+    }
+  ]
+}
